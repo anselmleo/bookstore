@@ -4,7 +4,7 @@
   <div class="wrapper">
     <h1 id="register-label">Admin Register</h1>
     <hr>
-    <form id="register"  action ="/adminreg" method ="POST">
+    <form id="register"  action ="/registeradmin" method ="POST">
       @csrf
       
       @if(session()->has('message'))

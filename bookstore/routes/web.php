@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/adminreg', 'AdminRegisterController@show');
-Route::get('/adminlogin', 'AdminLoginController@show');
-Route::post('/adminreg', 'AdminRegisterController@register');
+Route::group(['middleware' => 'admin_guest'], function() {
+    Route::get('/registeradmin', 'AdminRegisterController@show');
+    Route::get('/loginadmin', 'AdminLoginController@show');
+    Route::post('/registeradmin', 'AdminRegisterController@register');  
+});
+
+
